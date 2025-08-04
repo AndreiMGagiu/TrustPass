@@ -10,8 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 0) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_04_062558) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
+  create_table "purchases", force: :cascade do |t|
+    t.string "ref_trade_id", null: false
+    t.string "ref_user_id", null: false
+    t.string "od_currency", null: false
+    t.decimal "od_price", precision: 10, scale: 2, null: false
+    t.string "return_url", null: false
+    t.string "access_token"
+    t.string "od_id"
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ref_trade_id"], name: "index_purchases_on_ref_trade_id", unique: true
+  end
 end
