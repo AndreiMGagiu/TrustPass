@@ -26,6 +26,8 @@ gem "bootsnap", require: false
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
 gem "kamal", require: false
 
+gem 'httparty'
+
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
 
@@ -52,4 +54,6 @@ group :test do
   gem "shoulda-matchers", "~> 6.2"
   gem "factory_bot_rails", "~> 6.4"
   gem 'faker', '~> 3.3'
+  gem "webmock", "~> 3.23"
+  gem 'climate_control'
 end
